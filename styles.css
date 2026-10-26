@@ -1,0 +1,192 @@
+/* Starter styles: extend and improve these as part of the exercise. */
+
+/* ---------- Shared base (the same in every exercise) ---------- */
+
+:root {
+  /* Colors live in variables so they are defined once and reused. */
+  --bg: #f2f5f9;
+  --surface: #ffffff;
+  --text: #1d2939;
+  --text-muted: #5d6b82;
+  --border: #d0d5dd;
+  --primary: #215ce7;
+  --on-primary: #ffffff;
+  --focus: #fb923c;
+  --error: #b42318;
+  --success: #067647;
+
+  --radius: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 5px 20px rgb(16 42 67 / 0.06);
+
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Make the hidden attribute win over any display rule below. */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  padding: clamp(16px, 4vw, 42px);
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--primary);
+}
+
+.card {
+  max-width: 100%;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+/* ---------- Buttons and form controls ---------- */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--on-primary);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Quieter style for less important buttons: <button class="secondary"> */
+button.secondary {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+input:not([type="checkbox"], [type="radio"]),
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ---------- Dialog ---------- */
+
+dialog {
+  width: min(420px, calc(100% - 32px));
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text);
+}
+
+dialog::backdrop {
+  background: rgb(16 24 40 / 0.5);
+}
+
+dialog h2 {
+  margin-top: 0;
+}
+
+dialog .actions {
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
+
+/* ---------- Toasts ---------- */
+
+#toast-region {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  display: grid;
+  gap: 8px;
+  width: min(320px, calc(100% - 32px));
+}
+
+/* Suggested classes for the toasts you create in script.js. */
+.toast {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 4px 18px rgb(0 0 0 / 0.12);
+}
+
+.toast.success {
+  border-color: #abefc6;
+  background: #ecfdf3;
+  color: var(--success);
+}
+
+.toast.error {
+  border-color: #fecdca;
+  background: #fef3f2;
+  color: var(--error);
+}

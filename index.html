@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modal Dialog &amp; Toast Notifications</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Dialogs and notifications</h1>
+      <p>Deleting the draft asks for confirmation first.</p>
+      <button id="open-modal" type="button">Delete draft</button>
+    </main>
+
+    <dialog id="confirm-dialog">
+      <h2>Do you want to confirm this action?</h2>
+      <p>The draft will be deleted. This can't be undone.</p>
+      <!-- method="dialog" closes the dialog and sets dialog.returnValue to the clicked button's value. -->
+      <form method="dialog" class="actions">
+        <button class="secondary" value="cancel">Cancel</button>
+        <button value="confirm">Confirm</button>
+      </form>
+    </dialog>
+
+    <div id="toast-region"></div>
+  </body>
+</html>
